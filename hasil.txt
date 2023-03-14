@@ -1,0 +1,62 @@
+ALGORTIMA : program oenentuan kordinat;
+
+type
+  matrix = array[1..2, 1..4] of integer;
+
+var
+  a: matrix;
+  b: matrix;
+  c: matrix;
+  i, j, k: integer;
+
+// Fungsi untuk menghitung perkalian matriks 2x2 dengan matriks 2x4
+
+FUNSI PERKALIAN (var a, b, c: matrix);
+begin
+  for i := 1 to 2 do
+    for j := 1 to 4 do
+      begin
+        c[i, j] := 0;
+        for k := 1 to 2 do
+          c[i, j] := c[i, j] + a[i, k] * b[k, j];
+      end;
+end;
+
+begin
+
+  // Meminta input matriks a
+
+  writeln('Masukkan elemen matriks a:');
+  for i := 1 to 2 do
+    for j := 1 to 2 do
+      begin
+        write('a[', i, ',', j, '] = ');
+        readln(a[i, j]);
+      end;
+
+  // Meminta input matriks b
+
+  writeln('Masukkan elemen matriks b:');
+  for i := 1 to 2 do
+    for j := 1 to 4 do
+      begin
+        write('b[', i, ',', j, '] = ');
+        readln(b[i, j]);
+      end;
+
+  // Memanggil fungsi perkalian matriks
+
+  multiply(a, b, c);
+
+  // Menampilkan hasil perkalian matriks
+
+  writeln('Hasil perkalian kordinat bayangan:');
+ 
+  for i := 1 to 2 do
+    begin
+      for j := 1 to 4 do
+        write(c[i, j], ' ');
+      writeln;
+    end;
+end.
+
